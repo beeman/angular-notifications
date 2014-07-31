@@ -1,5 +1,6 @@
 'use strict';
 
+
 angular.module('notifications', []).
   factory('$notification', ['$timeout',function($timeout){
 
@@ -214,11 +215,11 @@ angular.module('notifications', []).
      */
     console.log('this is a new directive');
     var html =
-      '<div class="dr-notification-wrapper" ng-repeat="noti in queue">' +
+      '<div class="dr-notification-wrapper dr-notification-{{noti.type}}" ng-repeat="noti in queue">' +
         '<div class="dr-notification-close-btn" ng-click="removeNotification(noti)">' +
           '<i class="fa fa-times"></i>' +
         '</div>' +
-        '<div class="dr-notification">' +
+        '<div class="dr-notification dr-notification-{{noti.type}}">' +
           '<div class="dr-notification-image dr-notification-type-{{noti.type}}" ng-switch on="noti.image">' +
             '<i class="fa fa-{{noti.icon}}" ng-switch-when="false"></i>' +
             '<img ng-src="{{noti.image}}" ng-switch-default />' +
